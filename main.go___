@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+type Order struct {
+	ID       string
+	Price    float64
+	Quantity int
+}
+
+func (o Order) getTotal() float64 {
+	return o.Price * float64(o.Quantity)
+}
+
+func (o *Order) setTotal(price float64) {
+	o.Price = price
+}
+func newOrder() *Order {
+	return &Order{}
+}
+func main() {
+	a := newOrder()
+	a.ID = "10"
+	a.Price = 10
+	a.Quantity = 5
+
+	a.setTotal(20)
+	b := a
+	b.setTotal(15)
+	fmt.Println(a.getTotal())
+	fmt.Println(b.getTotal())
+
+}

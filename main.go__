@@ -1,0 +1,10 @@
+package main
+
+func main() {
+	a := 10
+	b := &a
+	println(b)
+	*b = 20
+	println(*b)
+	println(a)
+}
